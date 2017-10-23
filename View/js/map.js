@@ -14,7 +14,7 @@ function initMap() {
   });
 
   // Ajout des données
-  downloadUrl('', function(data) {
+  downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName('marker');
     Array.prototype.forEach.call(markers, function(markerElem) {
@@ -29,7 +29,7 @@ function initMap() {
       markerArray.push(marker);
     });
     var markerCluster = new MarkerClusterer(map, markerArray, {imagePath: 'View/img/m'});
-  }
+  });
 
 
 
@@ -42,9 +42,9 @@ function initMap() {
 
 // Création du logo permettant la redirection vers la page d'administration
 function RedirectCefii(controlDiv, map) {
-  var controllogo = document.createElement('div');
+  var controlLogo = document.createElement('div');
   logo.style.cursor = 'pointer';
-  logo.src = '/View/img/logo.png';
+  logo.src = 'View/img/logo.png';
   logo.style.width = '100px';
   logo.style.height = '100px';
   controlLogo.appendChild(logo);
