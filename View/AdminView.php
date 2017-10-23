@@ -20,13 +20,18 @@ class AdminView {
 		if($action == 'delete' || $action == ""){
 			$action = 'insert';
 		}
+		elseif ($action == 'refreshFields') {
+			$action = 'update';
+		}
 
+		$locationid = isset($_GET['id'])?$_GET['id']:"";
 		$postcode 	= isset($_GET['postcode'])?$_GET['postcode']:"";
 		$city    	= isset($_GET['city'])?$_GET['city']:"";
 		$country 	= isset($_GET['country'])?$_GET['country']:"";
 
 		$content 	= file_get_contents("view/html/admin.html");
 		$content 	= str_replace('{action}', $action, $content);
+		$content 	= str_replace('{locationid}', $locationid, $content);
 		$content 	= str_replace('{postcode}', $postcode, $content);
 		$content 	= str_replace('{city}', $city, $content);
 		$content 	= str_replace('{country}', $country, $content);
@@ -44,7 +49,7 @@ class AdminView {
 		$this->fillForm();
 
 		if ($table) {
-			$out  = "<h2>Liste des coordonnées disponibles</h2>";
+			$out  = "<h4>Liste des coordonnées disponibles</h4>";
 			$out .= '<div class="table-responsive"><table class="table table-striped table-bordered cellspacing="0" border=1>'
 					. '<thead>'
 					. '<th>CP</th><th>Ville</th><th>Pays</th><th>Latitude</th><th>Longitude</th><th>Modifier</th><th>Supprimer</th>'
@@ -57,13 +62,13 @@ class AdminView {
 				$out .= "<td>".$element['country']."</td>";
 				$out .= "<td>".$element['latitude']."</td>";
 				$out .= "<td>".$element['longitude']."</td>";
-				$out .= "<td><a href='index.php?page=Admin&action=update&id=".$element['locationid']."'><button>Modifier</button></a></td>";
+				$out .= "<td><a href='index.php?page=Admin&action=refreshFields&id=".$element['locationid']."&postcode=".$element['postcode']."&city=".$element['city']."&country=".$element['country']."'><button>Modifier</button></a></td>";
 				$out .= "<td><a href='index.php?page=Admin&action=delete&id=".$element['locationid']."'><button>Supprimer</button></a></td>";
 			}
 			$out .=  "</tbody></table></div>";	
 		}
 		else {
-			$out =  "<h2>Aucune donnée</h2>";	
+			$out =  "<h4>Aucune donnée</h4>";	
 		}
 
 		$this->page .= $out;
