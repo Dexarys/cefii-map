@@ -1,6 +1,6 @@
 <?php
 
-const DEFAULT_CONTROLLER = 'Admin';
+const DEFAULT_CONTROLLER = 'Map';
 const DEFAULT_ACTION = 'display';
 
 

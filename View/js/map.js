@@ -19,7 +19,7 @@ function initMap() {
   });
 
   // Ajout des données
-  downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
+  downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) { // modifier l'url par le fichier xml correspodant aux données
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName('marker');
     Array.prototype.forEach.call(markers, function(markerElem) {
