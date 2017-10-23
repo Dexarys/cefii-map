@@ -38,7 +38,7 @@ class Dispatcher {
   }
 
   private function redirection() {
-    header('Location:index.php?page=error&action=error404');
+    //header('Location:index.php?page=error&action=error404');
     exit();
   }
 

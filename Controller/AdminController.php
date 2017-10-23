@@ -37,6 +37,14 @@ class AdminController {
 	}
 
 	/**
+	 * Ajout des champs pour modification
+	 */
+	public function refreshFieldsAction() {
+		//$result = $this->model->updateLocation();
+		$this->displayAction();
+	}
+
+	/**
 	 * Suppression de coordonnées
 	 */
 	public function deleteAction() {
