@@ -22,7 +22,7 @@ class Dispatcher {
   private function executeAction() {
 
     $controller = ucfirst($this->page).'Controller';
-    $file = "controller/".$controller.".php";
+    $file = "Controller/".$controller.".php";
     $action = $this->action."Action";
     if (file_exists($file)) {
       require $file;
