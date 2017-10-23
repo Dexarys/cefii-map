@@ -65,29 +65,34 @@ class AdminModel {
 	}
 
 	public function insertLocation() {
-		$postcode     = $this->checkZone($_POST["postcode"]);
+		$postcode 	= $this->checkZone($_POST["postcode"]);
 		$city     	= $this->checkZone($_POST["city"]);
-		$country     = $this->checkZone($_POST["country"]);	
+		$country	= $this->checkZone($_POST["country"]);	
+		$latitude	= null;
+		$longitude	= null;
 
 		$result 	= false;
 
 		if ($this->connexion) {
-			$req = $this->connexion->prepare("INSERT INTO student_location VALUES (NULL, :postcode, :city, :country)");
+			$req = $this->connexion->prepare("INSERT INTO student_location VALUES (NULL, :postcode, :city, :country, :latitude, :longitude)");
+
 			$req->bindParam(':postcode', $postcode);
 			$req->bindParam(':city', $city);
 			$req->bindParam(':country', $country);
+			$req->bindParam(':latitude', $latitude);
+			$req->bindParam(':longitude', $longitude);
 
 			$result = $req->execute();
 		}
-		var_dump($result);
+
 		return $result;
 	}
 
 	public function updateLocation(){
 		$locationid     = $this->checkZone($_POST["locationid"]);
-		$postcode     = $this->checkZone($_POST["postcode"]);
-		$city     = $this->checkZone($_POST["city"]);
-		$country     = $this->checkZone($_POST["country"]);
+		$postcode    	= $this->checkZone($_POST["postcode"]);
+		$city     		= $this->checkZone($_POST["city"]);
+		$country    	= $this->checkZone($_POST["country"]);
 		// $locationid     = $this->checkZone($_POST["latitude"]);
 		// $locationid     = $this->checkZone($_POST["longitude"]);
 

@@ -7,7 +7,7 @@
 	<form action="index.php?page=Admin&action={action}" method="post" class="form-inline">
 		<div class="form-group">
 		    <label for="postcode">Code postal</label>
-		    <input type="text" class="form-control" id="postcode" name="postcode" value="{postcode}">
+		    <input type="text" class="form-control" id="postcode" name="postcode" value="{postcode}" required="">
 		</div>
 	  	<div class="form-group">
 	    	<label for="city">Ville</label>
@@ -15,7 +15,7 @@
 	  	</div>
 	  	<div class="form-group">
 	    	<label for="country">Pays</label>
-	    	<input type="text" class="form-control" id="country" name="country" value="{country}">
+	    	<input type="text" class="form-control" id="country" name="country" value="{country}" required="">
 	  	</div>
 	  	<button type="submit" class="btn btn-secondary">Valider</button>
 	</form>
