@@ -7,7 +7,7 @@ class AdminView {
 	 * Constructeur : ajout du header et de la nav dans l'attribut page
 	 */
 	public function __construct() {
-		$this->page  = file_get_contents("view/html/header.html");
+		$this->page  = file_get_contents("View/html/header.html");
 	}
 
 	/**
@@ -25,7 +25,7 @@ class AdminView {
 		$city    	= isset($_GET['city'])?$_GET['city']:"";
 		$country 	= isset($_GET['country'])?$_GET['country']:"";
 
-		$content 	= file_get_contents("view/html/admin.html");
+		$content 	= file_get_contents("View/html/admin.html");
 		$content 	= str_replace('{action}', $action, $content);
 		$content 	= str_replace('{postcode}', $postcode, $content);
 		$content 	= str_replace('{city}', $city, $content);
@@ -60,10 +60,10 @@ class AdminView {
 				$out .= "<td><a href='index.php?page=Admin&action=update&id=".$element['locationid']."'><button>Modifier</button></a></td>";
 				$out .= "<td><a href='index.php?page=Admin&action=delete&id=".$element['locationid']."'><button>Supprimer</button></a></td>";
 			}
-			$out .=  "</tbody></table></div>";	
+			$out .=  "</tbody></table></div>";
 		}
 		else {
-			$out =  "<h2>Aucune donnée</h2>";	
+			$out =  "<h2>Aucune donnée</h2>";
 		}
 
 		$this->page .= $out;
@@ -76,7 +76,7 @@ class AdminView {
 	 * @return [string] [description]
 	 */
 	private function displayPage(){
-		$this->page .= file_get_contents("view/html/footer.html");
+		$this->page .= file_get_contents("View/html/footer.html");
 		echo $this->page;
 	}
 }

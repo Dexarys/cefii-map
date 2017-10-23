@@ -3,8 +3,8 @@ var logo = new Image(); // @param logo - Initialisation de l'objet image pour in
 var markerArray = []; // @param markerArray - Tableau contenant les marqueurs
 var marker; // @param marker - Marqueur
 var france = {lat: 47.4666700,lng: -0.5500000};
-var europe = {lat: 48.1045601, lng: 4.1834218};
-var world = {lat: 20.4165000, lng: -0.5500000};
+var europe = {lat: 48.1045601,lng: 4.1834218};
+var world = {lat: 20.4165000,lng: -0.5500000};
 
 
 // Initialisation de la map - API Google
@@ -84,7 +84,7 @@ function RedirectCefii(controlDiv, map) {
   controlLogo.appendChild(logo);
   controlDiv.appendChild(controlLogo);
   controlLogo.addEventListener('click', function() {
-    document.location.href="#";
+    document.location.href="index.php?page=admin&action=display";
   })
 }
 
@@ -177,7 +177,6 @@ function WorldZoom(controlDiv, map) {
      map.setZoom(3);
   });
 }
-
 
 // Récupération des données XML obtenue à partir de la base de données
 function downloadUrl(url, callback) {
