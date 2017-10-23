@@ -7,10 +7,12 @@ var marker; // @param marker - Marqueur
 // Initialisation de la map - API Google
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: 6,
     center: {lat: -33, lng: 151},
     disableDefaultUI: true,
-    zoomControl: true
+    zoomControl: true,
+    mapTypeId: 'satellite',
+    fullscreenControl: true
   });
 
   // Ajout des données

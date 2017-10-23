@@ -1,3 +1,9 @@
+<!-- // Fichier de test Javascript /// -->
+
+
+
+
+
 <!DOCTYPE html >
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -28,13 +34,17 @@
     var marker; // @param marker - Marqueur
 
 
+
+
     // Initialisation de la map - API Google
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: {lat: -33, lng: 151},
+        zoom: 6,
+        center: {lat: 47.4666700, lng: -0.5500000},
         disableDefaultUI: true,
-        zoomControl: true
+        zoomControl: true,
+        mapTypeId: 'satellite',
+        fullscreenControl: true
       });
 
       // Ajout des données
@@ -46,8 +56,16 @@
               parseFloat(markerElem.getAttribute('lat')),
               parseFloat(markerElem.getAttribute('lng')));
 
+          var images = { // @param images - Modification du marqueur par défaut - Ne gère pas le regroupemement des marqueurs
+            url: 'View/img/logo-marqueur.png',
+            size: new google.maps.Size(64,64),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 0)
+          };
+
           marker = new google.maps.Marker({
             map: map,
+            icon: images, // Pour changer le marqueur
             position: point
           });
           markerArray.push(marker);
@@ -71,6 +89,7 @@
       logo.src = 'View/img/logo.png';
       logo.style.width = '100px';
       logo.style.height = '100px';
+      logo.style.margin = '10px';
       controlLogo.appendChild(logo);
       controlDiv.appendChild(controlLogo);
       controlLogo.addEventListener('click', function() {
