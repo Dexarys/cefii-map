@@ -2,8 +2,6 @@
 
 abstract class BaseModel
 {
-    // private $connexion;
-
     /**
      * Constructeur du modèle
      * @return [object] [description]
@@ -30,6 +28,7 @@ abstract class BaseModel
         try {
             $this->connexion = new PDO("mysql:host=".SERVER.";dbname=".BASE, USER, PASSWORD);
             $this->connexion->exec('SET NAMES utf8');
+
         } catch (Exception $e) {
             echo 'Erreur : ' . $e->getMessage();
         }

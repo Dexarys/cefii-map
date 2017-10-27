@@ -2,16 +2,6 @@
 require 'Model/BaseModel.php';
 
 class AdminModel extends BaseModel {
-	private $connexion;
-
-	/**
-	 * Constructeur du modèle
-	 * @return [object] [description]
-	 */
-	public function __construct() {
-
-	}
-
 	/**
 	 * Verification de la zone
 	 * Retourne de la valeur de la zone
@@ -25,6 +15,7 @@ class AdminModel extends BaseModel {
 
 	public function getAllLocations() {
 		$table = array(); // variable vide en cas d'erreur
+		
 		if ($this->connexion) {
 			$requete 	= "SELECT * FROM student_location";
 			$resultat   = $this->connexion->query($requete);
