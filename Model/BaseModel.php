@@ -22,8 +22,8 @@ abstract class BaseModel
 
         define('SERVER', "localhost");
         define('USER', "root");
-        define('PASSWORD', "4923dex");
-        define('BASE', "projet_cefii");
+        define('PASSWORD', "");
+        define('BASE', "projet_007");
 
         $this->connexion = false;
 

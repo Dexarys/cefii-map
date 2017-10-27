@@ -37,6 +37,9 @@ class AdminModel extends BaseModel {
 
 		$parsed_json = json_decode($this->findCoordinates($address));
 
+				var_dump($parsed_json);
+
+
 		$latitude	= $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
 		$longitude	= $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
 
@@ -101,7 +104,7 @@ class AdminModel extends BaseModel {
 
 	private function findCoordinates($address){
 		// On prépare l'URL du géocodeur
-		$geocoder = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false";
+		$geocoder = "https://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false&key=AIzaSyA9-WuX91A9deldsoOBLcdZ4m9yXWM65Rg";
 
 		// Conversion en UTF-8
 		$url_address = utf8_encode($address);
