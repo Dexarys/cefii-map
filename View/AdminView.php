@@ -17,7 +17,7 @@ class AdminView {
 	public function fillForm() {
 		$action		= isset($_GET['action'])?$_GET['action']:"";
 
-		if($action == 'delete' || $action == ""){
+		if($action == 'delete' || $action == "" || $action == "display"){
 			$action = 'insert';
 		}
 		elseif ($action == 'refreshFields') {

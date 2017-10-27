@@ -67,9 +67,14 @@ class AdminModel {
 	public function insertLocation() {
 		$postcode 	= $this->checkZone($_POST["postcode"]);
 		$city     	= $this->checkZone($_POST["city"]);
-		$country	= $this->checkZone($_POST["country"]);	
-		$latitude	= null;
-		$longitude	= null;
+		$country	= $this->checkZone($_POST["country"]);
+
+		$address = $postcode." ".$city." ".$country;
+
+		$parsed_json = json_decode($this->findCoordinates($address));
+
+		$latitude	= $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+		$longitude	= $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
 
 		$result 	= false;
 
@@ -93,8 +98,13 @@ class AdminModel {
 		$postcode    	= $this->checkZone($_POST["postcode"]);
 		$city     		= $this->checkZone($_POST["city"]);
 		$country    	= $this->checkZone($_POST["country"]);
-		// $locationid     = $this->checkZone($_POST["latitude"]);
-		// $locationid     = $this->checkZone($_POST["longitude"]);
+
+		$address = $postcode." ".$city." ".$country;
+
+		$parsed_json = json_decode($this->findCoordinates($address));
+
+		$latitude	= $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+		$longitude	= $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
 
 		$result 	= false;
 
@@ -123,6 +133,25 @@ class AdminModel {
 			$resultat = $req->execute();
 		}
 		return $resultat;
+	}
+
+	private function findCoordinates($address){
+		// On prépare l'URL du géocodeur
+		$geocoder = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false";
+		 
+		// Conversion en UTF-8
+		$url_address = utf8_encode($address);
+		 
+		// On encode l'adresse
+		$url_address = urlencode($url_address);
+		 
+		// On prépare notre requête
+		$query = sprintf($geocoder,$url_address);
+		 
+		// On interroge le serveur
+		$results = file_get_contents($query);
+
+		return $results;
 	}
 	
 }
