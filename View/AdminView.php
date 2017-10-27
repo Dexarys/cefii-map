@@ -28,11 +28,7 @@ class AdminView {
 		$postcode 	= isset($_GET['postcode'])?$_GET['postcode']:"";
 		$city    	= isset($_GET['city'])?$_GET['city']:"";
 		$country 	= isset($_GET['country'])?$_GET['country']:"";
-<<<<<<< HEAD
 		$content 	= file_get_contents("View/html/admin.html");
-=======
-
->>>>>>> 9a9ebda3a7f1f97ddf63c6c70c0976c93f503cb6
 		$content 	= str_replace('{action}', $action, $content);
 		$content 	= str_replace('{locationid}', $locationid, $content);
 		$content 	= str_replace('{postcode}', $postcode, $content);
