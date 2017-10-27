@@ -48,7 +48,7 @@ class AdminView {
 		$this->fillForm();
 
 		if ($table) {
-			$out  = "<h5 id='coord_title'>Liste des coordonnées disponibles</h5>";
+			$out  = "<h4>Liste des coordonnées disponibles</h4>";
 			$out .= '<div class="table-responsive"><table class="table table-striped table-bordered cellspacing="0" border=1>'
 					. '<thead>'
 					. '<th>CP</th><th>Ville</th><th>Pays</th><th>Latitude</th><th>Longitude</th><th>Modifier</th><th>Supprimer</th>'
@@ -61,8 +61,8 @@ class AdminView {
 				$out .= "<td>".$element['country']."</td>";
 				$out .= "<td>".$element['latitude']."</td>";
 				$out .= "<td>".$element['longitude']."</td>";
-				$out .= "<td><a href='index.php?page=Admin&action=refreshFields&id=".$element['locationid']."&postcode=".$element['postcode']."&city=".$element['city']."&country=".$element['country']."'><i class=\"fa fa-pencil\"></i></a></td>";
-				$out .= "<td><a href='index.php?page=Admin&action=delete&id=".$element['locationid']."'><i class=\"fa fa-trash\"></a></td>";
+				$out .= "<td><a href='index.php?page=Admin&action=refreshFields&id=".$element['locationid']."&postcode=".$element['postcode']."&city=".$element['city']."&country=".$element['country']."'><button>Modifier</button></a></td>";
+				$out .= "<td><a href='index.php?page=Admin&action=delete&id=".$element['locationid']."'><button>Supprimer</button></a></td>";
 			}
 			$out .=  "</tbody></table></div>";
 		}

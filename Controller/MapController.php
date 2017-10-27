@@ -39,16 +39,21 @@ class MapController
         $xml = 'View/marker.xml';
         $dom->load($xml);
         $node = $dom->documentElement;
+        $markers = $dom->getElementsByTagName('marker');
+        var_dump($markers);
+        foreach ($markers as $marker) {
+          $node->removeChild($marker);
+        }
         $parnode = $dom->appendChild($node);
 
         // header("Content-type: text/xml");
 
         foreach ($table as $element) {
-            $node = $dom->createElement("marker");
+            $node = $dom->createElement('marker');
             $newnode = $parnode->appendChild($node);
-            $newnode->setAttribute("lat", $element['latitude']);
-            $newnode->setAttribute("lng", $element['longitude']);
+            $newnode->setAttribute('lat', $element['latitude']);
+            $newnode->setAttribute('lng', $element['longitude']);
         }
-        $dom->save($xml)."\r";
+        $dom->save($xml);
     }
 }
