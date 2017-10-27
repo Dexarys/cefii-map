@@ -19,7 +19,7 @@ function initMap() {
   });
 
   // Ajout des données
-  downloadUrl('', function(data) { // modifier l'url par le fichier xml correspodant aux données
+  downloadUrl("View/marker.xml", function(data) { // modifier l'url par le fichier xml correspodant aux données
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName('marker');
     Array.prototype.forEach.call(markers, function(markerElem) {
