@@ -36,8 +36,9 @@ class MapController
     public function xmlMarkers($table)
     {
         $dom = new DOMDocument();
-        $dom->load('View/marker.xml');
-        $node = $dom->createElement("markers");
+        $xml = 'View/marker.xml';
+        $dom->load($xml);
+        $node = $dom->documentElement;
         $parnode = $dom->appendChild($node);
 
         // header("Content-type: text/xml");
@@ -48,7 +49,6 @@ class MapController
             $newnode->setAttribute("lat", $element['latitude']);
             $newnode->setAttribute("lng", $element['longitude']);
         }
-
-        echo $dom->saveXML('View/marker.xml')."\r";
+        $dom->save($xml)."\r";
     }
 }

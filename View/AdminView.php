@@ -5,7 +5,7 @@ class AdminView {
 	 * Constructeur : ajout du header et de la nav dans l'attribut page
 	 */
 	public function __construct() {
-		$this->page  = file_get_contents("view/html/header.html");
+		$this->page  = file_get_contents("View/html/header.html");
 	}
 	/**
 	 * Affichage du formulaire d'ajout ou de modification
@@ -23,7 +23,7 @@ class AdminView {
 		$postcode 	= isset($_GET['postcode'])?$_GET['postcode']:"";
 		$city    	= isset($_GET['city'])?$_GET['city']:"";
 		$country 	= isset($_GET['country'])?$_GET['country']:"";
-		$content 	= file_get_contents("view/html/admin.html");
+		$content 	= file_get_contents("View/html/admin.html");
 		$content 	= str_replace('{action}', $action, $content);
 		$content 	= str_replace('{locationid}', $locationid, $content);
 		$content 	= str_replace('{postcode}', $postcode, $content);
@@ -69,7 +69,7 @@ class AdminView {
 	 * @return [string] [description]
 	 */
 	private function displayPage(){
-		$this->page .= file_get_contents("view/html/footer.html");
+		$this->page .= file_get_contents("View/html/footer.html");
 		echo $this->page;
 	}
 }
