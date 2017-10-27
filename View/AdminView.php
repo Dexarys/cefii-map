@@ -1,43 +1,56 @@
 <?php
 class AdminView {
+
 	private $page;
+
 	/**
 	 * Constructeur : ajout du header et de la nav dans l'attribut page
 	 */
 	public function __construct() {
 		$this->page  = file_get_contents("View/html/header.html");
 	}
+
 	/**
 	 * Affichage du formulaire d'ajout ou de modification
 	 * @return [string] [description]
 	 */
 	public function fillForm() {
 		$action		= isset($_GET['action'])?$_GET['action']:"";
-		if($action == 'delete' || $action == ""){
+
+		if($action == 'delete' || $action == "" || $action == "display"){
 			$action = 'insert';
 		}
 		elseif ($action == 'refreshFields') {
 			$action = 'update';
 		}
+
 		$locationid = isset($_GET['id'])?$_GET['id']:"";
 		$postcode 	= isset($_GET['postcode'])?$_GET['postcode']:"";
 		$city    	= isset($_GET['city'])?$_GET['city']:"";
 		$country 	= isset($_GET['country'])?$_GET['country']:"";
+<<<<<<< HEAD
 		$content 	= file_get_contents("View/html/admin.html");
+=======
+
+>>>>>>> 9a9ebda3a7f1f97ddf63c6c70c0976c93f503cb6
 		$content 	= str_replace('{action}', $action, $content);
 		$content 	= str_replace('{locationid}', $locationid, $content);
 		$content 	= str_replace('{postcode}', $postcode, $content);
 		$content 	= str_replace('{city}', $city, $content);
 		$content 	= str_replace('{country}', $country, $content);
+
 		$this->page .= $content;
 	}
+
 	/**
 	 * Affichage du texte reçu par paramètre
 	 * @param  [string] $text [texte]
 	 * @return [string]       [description]
 	 */
 	public function displayContent($table) {
+
 		$this->fillForm();
+
 		if ($table) {
 			$out  = "<h4>Liste des coordonnées disponibles</h4>";
 			$out .= '<div class="table-responsive"><table class="table table-striped table-bordered cellspacing="0" border=1>'
@@ -60,9 +73,11 @@ class AdminView {
 		else {
 			$out =  "<h4>Aucune donnée</h4>";
 		}
+
 		$this->page .= $out;
 		$this->displayPage();
 	}
+
 	/**
 	 * Affiche l'ensemble de la page
 	 * Inclusion du footer

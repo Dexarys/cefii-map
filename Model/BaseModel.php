@@ -19,15 +19,11 @@ abstract class BaseModel
      */
     private function connectDb()
     {
-        // define('SERVER',"sqlprive-pc2372-001.privatesql.ha.ovh.net");
-        // define('USER',"cefiidev593");
-        // define('PASSWORD',"oT93qA9v");
-        // define('BASE',"cefiidev593");
 
         define('SERVER', "localhost");
         define('USER', "root");
-        define('PASSWORD', "4923dex");
-        define('BASE', "projet_cefii");
+        define('PASSWORD', "");
+        define('BASE', "projet_007");
 
         $this->connexion = false;
 
