@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 27 oct. 2017 à 07:04
+-- Généré le :  ven. 27 oct. 2017 à 07:12
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -46,6 +46,27 @@ CREATE TABLE IF NOT EXISTS `student_location` (
 INSERT INTO `student_location` (`locationid`, `postcode`, `city`, `country`, `latitude`, `longitude`) VALUES
 (3, '75000', 'Paris', 'France', NULL, NULL),
 (5, '49000', 'Angers', 'France', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(16) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`userid`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
