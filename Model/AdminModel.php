@@ -2,6 +2,7 @@
 require 'Model/BaseModel.php';
 
 class AdminModel extends BaseModel {
+
 	/**
 	 * Verification de la zone
 	 * Retourne de la valeur de la zone
@@ -15,11 +16,10 @@ class AdminModel extends BaseModel {
 
 	public function getAllLocations() {
 		$table = array(); // variable vide en cas d'erreur
-		
 		if ($this->connexion) {
 			$requete 	= "SELECT * FROM student_location";
 			$resultat   = $this->connexion->query($requete);
-			
+
 			if ($resultat) {
 				$table = $resultat->fetchAll(PDO::FETCH_ASSOC);
 			}
@@ -93,7 +93,7 @@ class AdminModel extends BaseModel {
 		if ($this->connexion){
 			$req = $this->connexion->prepare("DELETE FROM student_location WHERE locationid=:locationid");
 			$req->bindParam(':locationid', $locationid);
-		
+
 			$resultat = $req->execute();
 		}
 		return $resultat;
@@ -102,20 +102,20 @@ class AdminModel extends BaseModel {
 	private function findCoordinates($address){
 		// On prépare l'URL du géocodeur
 		$geocoder = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false";
-		 
+
 		// Conversion en UTF-8
 		$url_address = utf8_encode($address);
-		 
+
 		// On encode l'adresse
 		$url_address = urlencode($url_address);
-		 
+
 		// On prépare notre requête
 		$query = sprintf($geocoder,$url_address);
-		 
+
 		// On interroge le serveur
 		$results = file_get_contents($query);
 
 		return $results;
 	}
-	
+
 }
