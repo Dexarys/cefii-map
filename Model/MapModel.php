@@ -4,6 +4,10 @@ require 'Model/BaseModel.php';
 
 class MapModel extends BaseModel
 {
+    /**
+     * Récupération des markers liés à la location
+     * @return [string] [description]
+     */
     public function getMarkers()
     {
         $table = array();

@@ -84,7 +84,7 @@ function RedirectCefii(controlDiv, map) {
   controlLogo.appendChild(logo);
   controlDiv.appendChild(controlLogo);
   controlLogo.addEventListener('click', function() {
-    document.location.href="index.php?page=admin&action=display";
+    document.location.href="index.php?page=connexion&action=display";
   })
 }
 

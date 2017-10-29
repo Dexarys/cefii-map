@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "Model/AdminModel.php";
 include "View/AdminView.php";
 
@@ -16,15 +16,21 @@ class AdminController {
 	 * Affichage des coordonnées
 	 */
 	public function displayAction() {
-		$locationTable = $this->model->getAllLocations();
-		$this->view->displayContent($locationTable);
+        if ($this->model->login_check()) {
+            $locationTable = $this->model->getAllLocations();
+            $this->view->displayContent($locationTable);
+        } else {
+            header('Location: index.php?page=connexion&action=display');
+        }
 	}
 
 	/**
 	 * Modification de la Bdd
 	 */
 	public function insertAction() {
-		$result = $this->model->insertLocation();
+        if ($this->model->login_check()) {
+            $result = $this->model->insertLocation();
+        }
 		$this->displayAction();
 	}
 
@@ -32,7 +38,9 @@ class AdminController {
 	 * Modification de la Bdd
 	 */
 	public function updateAction() {
-		$result = $this->model->updateLocation();
+        if ($this->model->login_check()) {
+            $result = $this->model->updateLocation();
+        }
 		$this->displayAction();
 	}
 
@@ -47,7 +55,9 @@ class AdminController {
 	 * Suppression de coordonnées
 	 */
 	public function deleteAction() {
-		$result = $this->model->deleteLocation();
+        if ($this->model->login_check()) {
+            $result = $this->model->deleteLocation();
+        }
 		$this->displayAction();
 	}
 }
