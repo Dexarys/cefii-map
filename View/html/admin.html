@@ -15,12 +15,16 @@
 		    <input type="text" class="form-control" id="locationid" name="locationid" value="{locationid}" hidden="">
 		</div>
 		<div class="form-group">
+            <label for="">Adresse</label>
+		    <input type="text" class="form-control" id="user_input_autocomplete_address" name="">
+		</div>
+		<div class="form-group">
 		    <label for="postcode">Code postal</label>
-		    <input type="text" class="form-control" id="postcode" name="postcode" value="{postcode}" required="">
+		    <input type="text" class="form-control" id="postal_code" name="postcode" value="{postcode}" required="">
 		</div>
 	  	<div class="form-group">
 	    	<label for="city">Ville</label>
-	    	<input type="text" class="form-control" id="city" name="city" value="{city}">
+	    	<input type="text" class="form-control" id="locality" name="city" value="{city}">
 	  	</div>
 	  	<div class="form-group">
 	    	<label for="country">Pays</label>
@@ -29,3 +33,6 @@
 	  	<button type="submit" class="btn btn-secondary">Valider</button>
 	</form>
 </div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxTKi67B3W71rjv7z6LOxxtkA068HgRvA&libraries=places"></script>
+<script type="text/javascript" src="View/js/autocomplete.js"></script>

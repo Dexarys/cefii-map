@@ -49,8 +49,6 @@ class AdminModel extends BaseModel
 
 		$parsed_json = json_decode($this->findCoordinates($address));
 
-				var_dump($parsed_json);
-
 
 		$latitude = $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
 		$longitude = $parsed_json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
