@@ -1,17 +1,25 @@
-#address_form .form-group:not(:first-child){
-	margin-left: 0.5em;
-	margin-right: 0.5em;
+header {
+    background-color: #C0C0C0;
+    margin-bottom: 2em;
 }
 
-#address_form .form-group>label{
-	margin-right: 0.4em;
+.nav-a {
+    font-size: 1.5em;
+    color: black;
+}
+.nav-a:hover {
+    text-decoration: none;
+    color: #8B0000;
 }
 
-.content-wrapper{
-	margin-top: 2em;
-	margin-bottom: 2em;
+.nav-li {
+    margin: 0.4em;
 }
 
-#coord_title{
-	text-align: center;
+.form-admin {
+    margin-bottom: 4em;
+}
+
+.label-admin {
+    font-size: 1.2em;
 }
