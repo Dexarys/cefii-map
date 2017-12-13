@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<header>
+    <nav>
+        <a href="{{ path('admin') }}"><img src="{{ asset('img/logo-marqueur.png') }}" alt="Logo CEFii">Administration</a>
+        <ul>
+            <li><a href="{{ path('home') }}">Carte</li>
+            <li><a href="">Deconnexion</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div>
+    <div>
+        {{ form(form) }}
+    </div>
+
+    <div>
+        <h2>Liste des coordonnées disponibles</h5>
+        <table border="1">
+            <thead>
+                <th>CP</th><th>Ville</th><th>Pays</th><th>Latitude</th><th>Longitude</th><th>Modifier</th><th>Supprimer</th>
+            </thead>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

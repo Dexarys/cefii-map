@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\StudentLocation;
 use App\Repository\StudentLocationRepository;
+use App\Form\LocationType;
 
 
 class AdminController extends Controller
@@ -19,11 +20,31 @@ class AdminController extends Controller
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $markers = $em->getRepository(StudentLocation::class)->findMarkers();
-
-        
+        $em->getRepository(StudentLocation::class)->createXMLMarkers();
 
         return $this->render('map/map.html.twig');
+    }
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function adminIndex(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $studentLocations = $em->getRepository(StudentLocation::class)->findAll();
+
+        $locations = new StudentLocation();
+        $form = $this->createForm(LocationType::class, $locations);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+        }
+
+        return $this->render('admin/admin.html.twig', [
+            'form' => $form->createView(),
+            'locations' => $studentLocations
+        ]);
     }
 
 }

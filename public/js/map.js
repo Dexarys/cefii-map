@@ -31,7 +31,7 @@ function initMap() {
   });
 
   // Ajout des données
-  downloadUrl("View/marker.xml", function(data) { // modifier l'url par le fichier xml correspodant aux données
+  downloadUrl("xml/marker.xml", function(data) { // modifier l'url par le fichier xml correspodant aux données
     var xml = data.responseXML;
     var markers = xml.documentElement.getElementsByTagName('marker');
     Array.prototype.forEach.call(markers, function(markerElem) {
@@ -40,7 +40,7 @@ function initMap() {
         parseFloat(markerElem.getAttribute('lng')));
 
       var images = { // @param images - Modification du marqueur par défaut - Ne gère pas le regroupemement des marqueurs
-        url: 'View/img/logo-marqueur.png',
+        url: 'img/logo-marqueur.png',
         size: new google.maps.Size(64, 64),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(0, 0)
@@ -91,14 +91,14 @@ function initMap() {
 function RedirectCefii(controlDiv, map) {
   var controlLogo = document.createElement('div');
   logo.style.cursor = 'pointer';
-  logo.src = 'View/img/logo.png';
+  logo.src = 'img/logo.png';
   logo.style.width = '100px';
   logo.style.height = '100px';
   logo.style.margin = '10px';
   controlLogo.appendChild(logo);
   controlDiv.appendChild(controlLogo);
   controlLogo.addEventListener('click', function() {
-    document.location.href = "index.php?page=connexion&action=display";
+    document.location.href = "/admin";
   })
 }
 

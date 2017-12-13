@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66d84d19f5d98f2c4906a795924a6c08",
-    "content-hash": "28bf7ad3f820d514a1ed1eb0f4bdaced",
+    "hash": "141e173d89ea146b551baf316eaae9ec",
+    "content-hash": "0ee9ab77f9aa9d6a0e400912b08c0d51",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2122,16 +2122,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "c80f73023a9bae9231f4a1acd35beb87f81c8c8c"
+                "reference": "23f95e189f084adefa69a7e3f0c94fec7f754f58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/c80f73023a9bae9231f4a1acd35beb87f81c8c8c",
-                "reference": "c80f73023a9bae9231f4a1acd35beb87f81c8c8c",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23f95e189f084adefa69a7e3f0c94fec7f754f58",
+                "reference": "23f95e189f084adefa69a7e3f0c94fec7f754f58",
                 "shasum": ""
             },
             "require": {
@@ -2160,7 +2160,7 @@
                 "symfony/security-csrf": "~2.8|~3.0|~4.0",
                 "symfony/translation": "~2.8|~3.0|~4.0",
                 "symfony/validator": "^3.2.5|~4.0",
-                "symfony/var-dumper": "~3.3.11|~3.4-beta3|~4.0-beta3"
+                "symfony/var-dumper": "~3.3.11|~3.4|~4.0"
             },
             "suggest": {
                 "symfony/framework-bundle": "For templating with PHP.",
@@ -2198,7 +2198,7 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-29 13:28:14"
+            "time": "2017-12-03 21:15:09"
         },
         {
             "name": "symfony/framework-bundle",
