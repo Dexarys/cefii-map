@@ -46,7 +46,10 @@ class StudentLocation
      */
     private $longitude;
 
-    
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getPostCode()
     {

@@ -17,12 +17,29 @@
     </div>
 
     <div>
-        <h2>Liste des coordonnées disponibles</h5>
-        <table border="1">
-            <thead>
-                <th>CP</th><th>Ville</th><th>Pays</th><th>Latitude</th><th>Longitude</th><th>Modifier</th><th>Supprimer</th>
-            </thead>
-        </table>
+        {% if locations is empty %}
+            <h2>Il n'y a pas de coordonnées disponibles</h2>
+        {% else %}
+            <h2>Liste des coordonnées disponibles : </h5>
+            <table border="1">
+                <thead>
+                    <th>CP</th><th>Ville</th><th>Pays</th><th>Latitude</th><th>Longitude</th><th>Modifier</th><th>Supprimer</th>
+                </thead>
+                <tbody>
+                    {% for location in locations %}
+                        <tr>
+                            <td>{{ location.postcode }}</td>
+                            <td>{{ location.city }}</td>
+                            <td>{{ location.country }}</td>
+                            <td>{{ location.latitude }}</td>
+                            <td>{{ location.longitude }}</td>
+                            <td><a href="{{ path('updateLocation', {'id':location.id}) }}">Modifier</a></td>
+                            <td><a href="{{ path('deleteLocation', {'id':location.id}) }}">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

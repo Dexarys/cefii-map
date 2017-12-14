@@ -46,5 +46,34 @@ class StudentLocationRepository extends ServiceEntityRepository
         $dom->save($xml);
     }
 
+    public function geocoder($adress)
+    {
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false&key=AIzaSyA9-WuX91A9deldsoOBLcdZ4m9yXWM65Rg";
+
+        $urlAdress = urlencode(utf8_encode($adress));
+        $query = sprintf($url, $urlAdress);
+        $resp_json = file_get_contents($query);
+        $resp = json_decode($resp_json, true);
+
+        if ($resp['status'] == 'OK') {
+            $latitude = $resp['results'][0]['geometry']['location']['lat'];
+            $longitude = $resp['results'][0]['geometry']['location']['lng'];
+
+            if ($latitude && $longitude) {
+                $add = array();
+                array_push(
+                    $add,
+                    $latitude,
+                    $longitude
+                );
+                return $add;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
 
 }
