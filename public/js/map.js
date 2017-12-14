@@ -54,7 +54,7 @@ function initMap() {
       markerArray.push(marker);
     });
     var markerCluster = new MarkerClusterer(map, markerArray, {
-      imagePath: 'View/img/m'
+      imagePath: 'img/m'
     });
   });
 

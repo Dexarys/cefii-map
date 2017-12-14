@@ -15,7 +15,7 @@ class StudentLocationRepository extends ServiceEntityRepository
 
     public function createXMLMarkers()
     {
-        $markers = $this->createQueryBuilder('m')
+        $markersLocation = $this->createQueryBuilder('m')
         ->select('m.latitude, m.longitude')
         ->getQuery()
         ->getResult();
@@ -37,11 +37,11 @@ class StudentLocationRepository extends ServiceEntityRepository
 
         $parnode = $dom->appendChild($node);
 
-        foreach ($markers as $element) {
-          $node = $dom->createElement('marker');
-          $newnode = $parnode->appendChild($node);
-          $newnode->setAttribute('lat', $element['latitude']);
-          $newnode->setAttribute('lng', $element['longitude']);
+        foreach ($markersLocation as $element) {
+            $node = $dom->createElement('marker');
+            $newnode = $parnode->appendChild($node);
+            $newnode->setAttribute('lat', $element['latitude']);
+            $newnode->setAttribute('lng', $element['longitude']);
         }
         $dom->save($xml);
     }
