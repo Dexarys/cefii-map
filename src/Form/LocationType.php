@@ -13,10 +13,32 @@ class LocationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('postcode', TextType::class)
-            ->add('city', TextType::class)
-            ->add('country', TextType::class)
-            ->add('send', SubmitType::class)
+            ->add('postcode', TextType::class, array(
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Code postal',
+                    'class' => 'form-control mb-2 mr-sm-2 mb-sm-0'
+                )
+            ))
+            ->add('city', TextType::class, array(
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Ville',
+                    'class' => 'form-control mb-2 mr-sm-2 mb-sm-0'
+                )
+            ))
+            ->add('country', TextType::class, array(
+                'required' => true,
+                'attr' => array(
+                    'placeholder' => 'Pays',
+                    'class' => 'form-control mb-2 mr-sm-2 mb-sm-0'
+                )
+            ))
+            ->add('send', SubmitType::class, array(
+                'attr' => array(
+                    'class' => 'btn btn-secondary'
+                )
+            ))
         ;
     }
 }

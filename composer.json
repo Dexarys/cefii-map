@@ -16,7 +16,8 @@
         "symfony/security-bundle": "3.4",
         "symfony/twig-bundle": "3.4.1",
         "symfony/web-server-bundle": "3.4",
-        "symfony/yaml": "^3.4"
+        "symfony/yaml": "^3.4",
+        "twbs/bootstrap": "4.0.0-beta.2"
     },
     "require-dev": {
         "symfony/dotenv": "^3.4"

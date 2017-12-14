@@ -1,0 +1,25 @@
+header {
+    background-color: #C0C0C0;
+    margin-bottom: 2em;
+}
+
+.nav-a {
+    font-size: 1.5em;
+    color: black;
+}
+.nav-a:hover {
+    text-decoration: none;
+    color: #8B0000;
+}
+
+.nav-li {
+    margin: 0.4em;
+}
+
+.form-admin {
+    margin-bottom: 4em;
+}
+
+.label-admin {
+    font-size: 1.2em;
+}
